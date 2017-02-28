@@ -46,9 +46,9 @@
                 } else if (request.getParameter("size").equals("large")) {
                     cost = cost + 7.00;
                 }
-                if (request.getParameter("other").equals("pan")) {
+                if (request.getParameter("crust").equals("pan")) {
                     cost = cost + 1.00;
-                } else if (request.getParameter("other").equals("hand-tossed")) {
+                } else if (request.getParameter("crust").equals("hand-tossed")) {
                     cost = cost + .50;
                 }
                 out.println("<p>Your Final Cost is: " + cost + "</p>");
