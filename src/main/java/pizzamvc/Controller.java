@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * The Controller class handles all requests coming in from the user's browser.
  *
- * @author John Phillips
+ * @author Matthew Brady
  */
 public class Controller extends HttpServlet {
 
@@ -54,6 +54,7 @@ public class Controller extends HttpServlet {
             // get parameters passed in from the request
             String email = request.getParameter("email");
             String size = request.getParameter("size");
+            String crust = request.getParameter("crust");
             String[] toppingArray = request.getParameterValues("toppings");
 
             // convert toppingArray to a comma separated string
@@ -77,11 +78,11 @@ public class Controller extends HttpServlet {
             // store data in an PizzaOrder object
             // the PizzaOrder class is part of the MVC model 
             // as is the DAO (data access object)
-            PizzaOrder myOrder = new PizzaOrder(email, size, toppings);
+            PizzaOrder myOrder = new PizzaOrder(email, size, crust, toppings);
             System.out.println("Controller:order:pizza=" + myOrder);
 
             // validate the parameters
-            if (email == null || size == null || email.isEmpty() || size.isEmpty()) {
+            if (email == null || size == null || email.isEmpty() || size.isEmpty() || crust == null || crust.isEmpty()) {
                 url = "/orderError.jsp";
                 System.out.println("Controller:pizza order validation error");
             } else {
